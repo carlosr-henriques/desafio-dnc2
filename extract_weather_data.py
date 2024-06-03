@@ -38,7 +38,7 @@ def get_weather(df):
     response = requests.get(URL)
     response_json = response.json()
     return {
-      "date_now":datetime.now(),
+      "weather_id": datetime.now().strftime('%Y-%m-%d'),
       "temp_predicted": response_json["main"]["temp"] - 273.15,
       "temp_feels_like_predicted": response_json["main"]["feels_like"] - 273.15,
       "temp_max_predicted": response_json["main"]["temp_max"] - 273.15,
@@ -69,9 +69,11 @@ def create_weather_index(df):
     rows = cursor.fetchall()
     
     conn.close()
+
+    #df['date_now'] = datetime.now().strftime('%Y-%m-%d')
    
-    df['date_now'] = pd.to_datetime(df['date_now'])
-    df['date_now'] = df['date_now'].dt.strftime('%Y%m%d') + '0'+ str(rows[0][0])
+    df['weather_id'] = pd.to_datetime(df['weather_id'])
+    df['weather_id'] = df['weather_id'].dt.strftime('%Y%m%d') + '0'+ str(rows[0][0])
     return df
 
 def utc_transform(df):
@@ -95,7 +97,7 @@ def utc_transform(df):
             return None
 
         # Aplicar a função auxiliar ao DataFrame
-    df["local_time"] = df.apply(get_local_time, axis=1)
+    df["dat_dt_local"] = df.apply(get_local_time, axis=1)
 
     return df
 
@@ -111,6 +113,7 @@ if __name__ == "__main__":
     df = create_weather_index(df)
 
     df = unity_transform(df)
+    df = utc_transform(df)
 
     insert_weather_data(df)
 

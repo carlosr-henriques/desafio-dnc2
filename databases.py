@@ -4,8 +4,7 @@ con = sqlite3.connect("desafio_escola_dnc.db")
 cur = con.cursor()
 
 cur.execute("""create table tbl_weather(
-    weather_id integer primary key autoincrement,
-    date_now text not null,
+    weather_id integer primary key,
     city text not null,
     country text not null,
     latitude text not null,
@@ -18,12 +17,14 @@ cur.execute("""create table tbl_weather(
     wind_speed real not null,
     cloudiness real not null,
     description text not null,
-    sunset_utc text not null
+    sunset_utc text not null,
+    dat_dt_local text not null
 );""")
 
 
-cur.execute("""create table tbl_directions(
-    weather_id integer primary key,
+cur.execute("""create table tbl_direction(
+    diretion_id integer primary key autoincrement,
+    dat_dt_local text not null,
     start_address text not null,
     end_address text not null,
     distance real not null,
@@ -33,9 +34,7 @@ cur.execute("""create table tbl_directions(
     start_location_longitude text not null,
     end_location_latitude text not null,
     end_location_longitude text not null,
+    weather_id text not null,
     foreign key (weather_id) references tbl_weather(id)
 );""")
-
-cur.execute("drop table tb_weather")
-cur.execute("drop table tbl_directions")
 
