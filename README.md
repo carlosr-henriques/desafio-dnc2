@@ -121,6 +121,10 @@ Além do plano de acesso às chaves da API, devem ser baixados os seguintes paco
 - pip install streamlit-folium
 - pip install folium
 
+Baixando o arquivo requirements, digite no cmd:
+
+pip install -r requirements.txt
+
 Para acessar a aplicação streamlit, use o terminal, acesse a pasta do projeto pelo terminal e digite o código `streamlit run app.py`.
 
 
