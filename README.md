@@ -96,7 +96,7 @@ O clima de cada cidade deve fazer referência de uma ou mais direções.
 
 # 4. Integração com o Banco de Dados
 
-Para garantir a integridade entre os dados, no momento que uma nova consulta é feita na API, a ocorrência é salva no banco e os dados são extraídos. A última ocorrência de ambas as tabelas receberá o mesmo ID, e assim as informações poderão ser relacionadas.
+Para garantir a integridade entre os dados, no momento que uma nova consulta é feita na API, a ocorrência é salva no banco e os dados são extraídos. A última ocorrência de ambas as tabelas receberá o mesmo ID, e assim as informações poderão ser relacionadas. Embora a extração via banco de dados não se encontra implementada no projeto, a função foi criada para exemplificar a extração.
 
 # 5. Visualização
 
