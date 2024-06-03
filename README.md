@@ -91,7 +91,7 @@ O clima de cada cidade deve fazer referência de uma ou mais direções.
             int weather_id FK
         }
 
-    TBL_WEATHER |--o{ TBL_DIRECTIONS : "relates to"
+    TBL_WEATHER ||--o{ TBL_DIRECTIONS : "relates to"
 ```
 
 # 4. Integração com o Banco de Dados
