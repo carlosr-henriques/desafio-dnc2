@@ -1,0 +1,10 @@
+pandas
+SQLAlchemy
+googlemaps
+python-dotenv
+streamlit
+geopy
+pytz
+timezonefinder
+streamlit-folium
+folium
